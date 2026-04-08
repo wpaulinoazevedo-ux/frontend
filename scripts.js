@@ -1,4 +1,3 @@
-
 /*
   --------------------------------------------------------------------------------------
 	Funções de mudanças de visualização de elementos
@@ -721,8 +720,8 @@ async function carregarMarcas(elemento) {
 		elemento.innerHTML = '<option value="">Selecione uma marca</option>';
 		marcas.forEach(item => {
 			const option = document.createElement('option');
-			option.value = item.modelo;
-			option.text = item.modelo;
+			option.value = item.marca;
+			option.text = item.marca;
 			elemento.appendChild(option);
 		});
 	} catch (erro) {
