@@ -4,7 +4,6 @@ Este projeto é um sistema básico de registro de serviços para a fictícia Ofi
 
 ---
 ## Orientações
-```
 Para acessar através do Docker, acesse o diretório onde encontram-se os arquivos de frontend e execute os comandos abaixo como administrador.
 
 Construir o container.
