@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<HEAD>
+		<TITLE>SISTEMA Oficina</TITLE>
+	</HEAD>
+		<LINK rel="stylesheet" type="text/css" href="padrao.css" />
+		<meta charset="utf-8">
+		<script src="scripts.js" charset="utf-8"></script>
+	<BODY>
+        <div id="logo" class="padrao">
+            <label class="empresa">Oficina do João</label>
+        </div>
+		<div id="tela" class="tela">
+			<div id="menu" class="menu">
+				<input type="button" id="bt_veiculos" value="Veiculos" class="botao_menu" onclick='opcaoEscolhida("Veiculos")'>
+				<input type="button" id="bt_servicos" value="Serviços" class="botao_menu" onclick='opcaoEscolhida("Servicos")'>
+			</div>
+			<div id="subTela" class="subTela">
+				<div id="subMenu1" class="subMenu1">
+					<div id="divBotoes" class="divOculta">
+						<input type="button" id="bt_pesquisar" value="Pesquisar" class="botao_menu" onclick="formulario_pesquisar()">
+						<input type="button" id="bt_cadastrar" value="Cadastrar" class="botao_menu" onclick="formulario_cadastrar()">
+					</div>
+				</div>
+				<div id="conteudo" class="oculto">
+					<div id="div_pesquisa_veiculos" class="oculto">
+						<div class="barra_pesquisa_veiculos">
+							<div id="formulario_pesquisa" class="formulario_pesquisa_veiculos">
+								<label class="lb_cadastro">Placa:</label>
+								<input class="lacuna" id="psv_placa">
+							</div>
+							<input type="button" id="btPesquisar" class="btPesquisar" value="Pesquisar" onclick='pesquisar()'>
+						</div>
+					</div>
+					<div id="div_cadastra_veiculos" class="oculto">
+						<form id="form_cadastrar_veiculo">	
+							<div id="formulario_cadastra_veiculos" class="formulario_cadastra_veiculos">
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Nome do cliente:</label>
+									<input class="lacuna" id="cdv_cliente" required>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">CPF do cliente: </label>
+									<input class="lacuna" id="cdv_cpf" required>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Telefone:</label>
+									<input class="lacuna" id="cdv_telefone" required>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Placa:</label>
+									<input class="lacuna" id="cdv_placa" required>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Marca: </label>
+									<select class="lacuna" id="cdv_marca" onclick="carregarMarcas(this)" onchange="carregarModelos(this.value)">
+										<option value="">Selecione uma marca...</option>
+									</select>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Modelo: </label>
+									<select class="lacuna" id="cdv_modelo" onchange="carregarVersoes(this.value)">
+										<option value="">Selecione um modelo...</option>
+									</select>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Versão: </label>
+									<select class="lacuna" id="cdv_versao">
+										<option value="">Selecione uma versão...</option>
+									</select>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Cor: </label>
+									<select class="lacuna" id="cdv_cor" onclick="carregarCores(this)">
+										<option value="">Selecione uma cor...</option>
+									</select>
+								</div>
+								<div id="formulario_cadastro" class="formulario_cadastro">
+									<label class="lb_cadastro">Ano: </label>
+									<input class="lacuna" id="cdv_ano">
+								</div>
+							</div>
+							<div id="formulario_cadastro">
+								<div class="div_btCadastrar">
+									<input type="button" id="btCadastrar" class="btCadastrar"value="Cadastrar" onclick='cadastrar()'>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div id="div_pesquisa_servicos" class="oculto">
+						<div class="barra_pesquisa_servicos">
+							<div id="formulario_pesquisa" class="formulario_pesquisa_servicos">
+								<label class="lb_cadastro">Requisição:</label>
+								<input class="lacuna" id="pss_requisicao">
+								<input type="button" id="btPesquisar" class="btPesquisar" value="Pesquisar" onclick='pesquisar()'>
+							</div>
+						</div>
+					</div>		
+					<div id="div_cadastra_servicos" class="oculto">
+						<div id="formulario_cadastro" class="formulario_cadastro">
+							<label class="lb_cadastro">Placa: </label>
+							<select class="lacuna" id="cds_placa" onclick="carregarPlacas()">
+								<option value="">Digite uma placa...</option>
+							</select>
+						</div>
+						<div id="formulario_cadastro" class="formulario_cadastro"">
+							<label class="lb_cadastro">Valor: </label>
+							<input class="lacuna" id="cds_valor" required>
+						</div>
+						<div id="formulario_comentario" class="formulario_comentario"">
+							<label class="lb_comentario">Comentário: </label>
+							<input class="lacuna_comentario" id="cds_comentario">
+						</div>
+						<input type="button" id="btCadastrar" class="btPesquisar" value="Cadastrar" onclick='cadastrar()'>
+					</div>
+				</div>
+				<div id="retorno" class="oculto">
+					<div id="divTabelaVeiculos" class="oculto">
+						<table id="tabelaVeiculos">
+							<thead>
+								<tr>
+									<th>Placa</th>
+									<th>Cliente</th>
+									<th>Modelo</th>
+								</tr>
+							</thead>
+							<tbody id="conteudoTabelaVeiculos">
+							</tbody>
+						</table>
+					</div>
+					<div id="divTabelaServicos" class="oculto">
+						<table id="tabelaServicos">
+							<thead>
+								<tr>
+								<th>Requisição</th>
+								<th>Placa</th>
+								<th>Valor</th>
+								</tr>
+							</thead>
+							<tbody id="conteudoTabelaServicos">
+							</tbody>
+						</table>
+					</div>
+					<div id="divTabelaComentarios" class="oculto">
+						<table id="tabelaComentarios">
+							<thead>
+								<tr>
+									<th>Requisição</th>
+									<th>Comentário</th>
+									<th>Data</th>
+								</tr>
+							</thead>
+							<tbody id="conteudoTabelaComentarios">
+							</tbody>
+						</table>
+					</div>
+					<div id="div_alterar_veiculos" class="oculto">
+						<form id="form_alt_veiculo">
+							<div id="formulario_alterar_veiculos" class="formulario_cadastra_veiculos">
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Placa:</label>
+									<input class="lacuna" id="alt_placa" required>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Nome do cliente:</label>
+									<input class="lacuna" id="alt_cliente" required>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">CPF do cliente: </label>
+									<input class="lacuna" id="alt_cpf" required>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Telefone:</label>
+									<input class="lacuna" id="alt_telefone" required>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Marca: </label>
+									<input class="lacuna_bloqueada" id="alt_marca" readonly>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Modelo: </label>
+									<input class="lacuna_bloqueada" id="alt_modelo" readonly>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Versão: </label>
+									<input class="lacuna_bloqueada" id="alt_versao" readonly>
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Cor: </label>
+									<input class="lacuna" id="alt_cor">
+								</div>
+								<div id="formulario_alterar_veiculo" class="formulario_cadastro">
+									<label class="lb_alterar_veiculo">Ano: </label>
+									<input class="lacuna" id="alt_ano">
+								</div>
+								<div id="formulario_alterar_veiculo" class="oculto">
+									<label class="lb_alterar_veiculo">Placa Atual: </label>
+									<input class="lacuna" id="placa_atual" readonly>
+								</div>
+								<div id="formulario_alterar_veiculo" class="oculto">
+									<label class="lb_alterar_veiculo">Status: </label>
+									<input class="lacuna" id="alt_status" readonly>
+								</div>
+							</div>
+						</form>
+						<div id="formulario_alterar_veiculo">
+							<div class="div_btCadastrar">
+								<input type="button" id="btAlterar" class="btCadastrar"value="Alterar" onclick='atualizarVeiculo()'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </BODY>
+</html>
