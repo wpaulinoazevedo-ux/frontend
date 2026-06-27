@@ -1,6 +1,6 @@
 # Sistema de Oficina Mecânica
 
-Uma aplicação web simples e adaptável (responsiva) desenvolvida em **React** para o gerenciamento e consulta de clientes, veículos e ordens de serviço de uma oficina mecânica.
+Uma aplicação web simples desenvolvida para o gerenciamento e consulta de clientes, veículos e ordens de serviço de uma oficina mecânica.
 
 ## Funcionalidades
 
