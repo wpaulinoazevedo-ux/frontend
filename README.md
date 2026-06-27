@@ -88,13 +88,3 @@ O terminal exibirá um endereço local semelhante a este:
 Abra o seu navegador e acesse a URL indicada para utilizar o sistema.
 
 ---
-
-## Dica de Desenvolvimento (Persistência de Dados)
-
-Como a aplicação simula o banco de dados carregando o arquivo `src/dados.json` no `localStorage`, caso você altere a estrutura inicial do JSON diretamente no código, limpe o cache do seu navegador para forçar a recarga dos dados:
-1. Pressione **F12** no seu navegador para abrir o console de desenvolvedor.
-2. Na aba **Console**, digite o comando abaixo e pressione Enter:
-   ```javascript
-   localStorage.clear();
-   ```
-3. Atualize a página (**F5**).
