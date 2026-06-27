@@ -1,0 +1,14 @@
+{
+  "clientes": [
+    { "id": 1, "nome": "João Silva", "telefone": "(11) 99999-1111" },
+    { "id": 2, "nome": "Maria Souza", "telefone": "(11) 99999-2222" }
+  ],
+  "veiculos": [
+    { "id": 1, "placa": "ABC-1234", "modelo": "Gol 1.0", "clienteId": 1 },
+    { "id": 2, "placa": "XYZ-5678", "modelo": "Civic LXR", "clienteId": 2 }
+  ],
+  "servicos": [
+    { "id": 1, "descricao": "Troca de Óleo", "preco": "150.00", "veiculoId": 1 },
+    { "id": 2, "descricao": "Alinhamento e Balanceamento", "preco": "200.00", "veiculoId": 2 }
+  ]
+}
