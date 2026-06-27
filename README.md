@@ -1,6 +1,6 @@
 # Sistema de Oficina Mecânica
 
-Uma aplicação web simples para o gerenciamento e consulta de clientes, veículos e ordens de serviço de uma oficina mecânica.
+Uma aplicação web simples e adaptável (responsiva) desenvolvida em **React** para o gerenciamento e consulta de clientes, veículos e ordens de serviço de uma oficina mecânica.
 
 ## Funcionalidades
 
@@ -10,6 +10,7 @@ Uma aplicação web simples para o gerenciamento e consulta de clientes, veícul
 - **Roteamento Inteligente**: Navegação entre páginas via URL sem recarregamento (React Router), histórico de estados (`useLocation`), redirecionamentos automáticos (`useNavigate`) e página de erro 404 customizada.
 - **Layout Adaptável**: Visual responsivo que se ajusta automaticamente para computadores, tablets e celulares.
 - **Banco de Dados Simulado**: Persistência de dados local simulada através de um arquivo JSON estruturado carregado diretamente no `localStorage` do navegador.
+
 ---
 
 ## Pré-requisitos
@@ -18,6 +19,7 @@ Antes de iniciar, você vai precisar ter instalado em sua máquina:
 - **Node.js** (versão 18.x ou superior recomendada)
 - **NPM** (instalado automaticamente junto com o Node)
 - Um editor de código (ex: **VS Code**)
+
 ---
 
 ## Instalação e Configuração
@@ -67,12 +69,14 @@ Verifique se o seu arquivo `package.json` possui os seguintes scripts configurad
   "build": "vite build",
   "preview": "vite preview"
 }
+```
+
 ---
 
 ## Executando a Aplicação
 
 Para iniciar o servidor de desenvolvimento local, execute:
-```
+```bash
 npm run dev
 ```
 
